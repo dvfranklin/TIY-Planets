@@ -30,9 +30,9 @@ public class Main {
         );
 
         Spark.get(
-                "/planet",
+                "/planet/:id",
                 (request, response) -> {
-                    Planet planet = service.selectPlanet(Integer.valueOf(request.queryParams("id")));
+                    Planet planet = service.selectPlanet(Integer.valueOf(request.params("id")));
                     Gson gson = new GsonBuilder().create();
 
                     return gson.toJson(planet);
